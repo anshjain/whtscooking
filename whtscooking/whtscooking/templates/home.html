@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap mange_tags %}
+
+
+{% block body %}
+    <div style="float:right; margin:0px; padding:0px;">
+        <span><strong>{{current_date|date}}</strong></span>
+    </div>
+    {% if vendor_menus %}
+        <div style="width:100%; height:100%; margin-left:50px; padding-left:50px;">
+            {% for menu in vendor_menus %}
+               <div class="col-lg-12" style="width:40%; float:left !important; border: skyblue solid; margin: 5px; height:500px;">
+                   <br /><br/>
+                   <h4>
+                       <span>
+                           Menu of <strong style="color:red;">{{ menu.0 }}</strong>
+                       </span>
+                   </h4>
+                    {% get_value '' as menu_type %}
+                    <ol>
+                        {% for item in menu.1 %}
+                            {% if item.menu_type__type_name != menu_type %}
+                                {% get_value item.menu_type__type_name as menu_type %}
+                                <br /><br/>
+                                <span><strong style="color:blue;">{{ item.menu_type__type_name }} :</strong></span>
+                            {% endif %}
+                            <li><strong>{{ item.menu__item_name }}</strong></li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="col-lg-12 text-center">
+            No Menu for Today :( from any Vendor.
+        </div>
+    {% endif %}
+{% endblock %}
+
+

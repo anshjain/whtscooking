@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{# Load the tag library #}
+{% load bootstrap %}
+
+{% block body %}
+    {% if message %}
+        <div class="col-lg-12 text-center">
+            <div class=" {% if status == 2 %} alert alert-warning {% else %} alert alert-success{% endif %}">
+                {{message}}
+            </div>
+        </div>
+    {% endif %}
+    <form class="form-horizontal" action="{% url 'rating-home' %}" method="POST">
+        {% csrf_token %}
+        <div class="col-lg-12 text-center">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="radios" style="text-align: right;">
+                    Vendors <span style="color: red;">*</span>
+                </label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="radios-0">
+                      <input type="radio" name="vendor" id="radios-0" value="3" checked="3">
+                      BalaJi
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                      <input type="radio" name="vendor" id="radios-1" value="2">
+                      Maa & Roti
+                    </label>
+                    <label class="radio-inline" for="radios-2">
+                      <input type="radio" name="vendor" id="radios-2" value="1" checked="checked">
+                      Anna
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 text-center">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="radios" style="text-align: right;">
+                    Raring <span style="color: red;">*</span>
+                </label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="rating-2">
+                      <input type="radio" name="rating" id="rating-2" value="1" checked="checked">
+                      Super Like
+                    </label>
+                    <label class="radio-inline" for="rating-1">
+                      <input type="radio" name="rating" id="rating-1" value="2">
+                      Like
+                    </label>
+                    <label class="radio-inline" for="rating-0">
+                      <input type="radio" name="rating" id="rating-0" value="3">
+                      Not Like
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 text-center">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textarea" style="text-align: right;">Why So</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="textarea" name="why"></textarea>
+                 </div>
+            </div>
+        </div>
+        <div class="col-lg-12 text-center">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="textarea" style="text-align: right;">Area Of Improvement</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="textarea" name="imp"></textarea>
+                 </div>
+            </div>
+        </div>
+        <div class="col-lg-12 text-center">
+            <div class="form-group">
+                <input type="submit" class="'btn btn-primary" value="Submit">
+            </div>
+        </div>
+    </form>
+{#    <form class="form-horizontal">#}
+{#        {% for field in form %}#}
+{#            <div class="form-group">#}
+{#                <div class="form-inline">#}
+{#                  {{field}}#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    </form>#}
+{% endblock %}
+
+{% block graph %}
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <h3>Lunch Rating</h3>
+                    {% for vendor_name, user_rating in user_rating_dict.items %}
+                        {{ vendor_name }}
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-success" style="width:{% widthratio user_rating.rating_super_like 15 100 %}%">
+                                <span class="sr-only">{% widthratio user_rating.rating_super_like 40 100 %}% Complete (super_like)</span>
+                                  Super Like {% widthratio user_rating.rating_super_like 40 100 %}%
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" style="width:{% widthratio user_rating.rating_like 15 100 %}%">
+                                <span class="sr-only">{% widthratio user_rating.rating_super_like 40 100 %}% Complete (like)</span>
+                                  Like {% widthratio user_rating.rating_like 15 100 %}%
+                              </div>
+                              <div class="progress-bar progress-bar-danger" style="width:{% widthratio user_rating.rating_not_like 15 100 %}%">
+                                <span class="sr-only">{% widthratio user_rating.rating_super_like 40 100 %}% Complete (not_like)</span>
+                                  Not Like {% widthratio user_rating.rating_not_like 40 100 %}%
+                              </div>
+                            </div>
+                        <br/>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}l
