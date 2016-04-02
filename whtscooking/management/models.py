@@ -28,7 +28,8 @@ class HarmanLocation(models.Model):
     """
     Store office location, this will be used to identify menu specific location.
     """
-    location = models.CharField(max_length=30, verbose_name="Type Name")
+    location = models.CharField(max_length=30, verbose_name="Office location")
+    is_active = models.BooleanField(verbose_name="location active")
 
     def __unicode__(self):
         return u'{}'.format(self.location)
@@ -77,6 +78,7 @@ class VendorMenu(TimeStampedModel):
     vendor = models.ForeignKey(Vendor, verbose_name="Vendor")
     menu = models.ForeignKey(MenuCard, verbose_name="Menu Name")
     menu_type = models.ForeignKey(MenuType, verbose_name="Menu For")
+    location = models.ForeignKey(HarmanLocation, verbose_name="Menu For location")
     create_date = models.DateField('Creation Date', auto_now_add=True)
 
     class Meta:
