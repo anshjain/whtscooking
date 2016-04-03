@@ -2,11 +2,12 @@
 
 from django.forms import ModelForm, Textarea
 from django import forms
-from .models import UserRating, MenuCard, VendorMenu, MenuType, HarmanLocation
+from .models import UserRating, MenuCard, VendorMenu, MenuType, HarmanLocation, Vendor
 
 
 class FormUserRatings(forms.Form):
-    vendor = forms.ChoiceField(widget=forms.RadioSelect, choices=[])
+    vchoices = [(obj.id, obj.user.first_name) for obj in Vendor.objects.filter(user__is_active=True)]
+    vendor = forms.ChoiceField(widget=forms.RadioSelect, choices=vchoices)
     rating = forms.ChoiceField(widget=forms.RadioSelect, choices=UserRating.rating_type)
 
 

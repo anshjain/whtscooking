@@ -4,6 +4,10 @@
         <form method="POST">
             {{form}}
             {% csrf_token %}
+            {{form.hidden_fields}}
+            {% for hidden in form.hidden_fields %}
+                =={{ hidden }}
+            {% endfor %}
             <button type="submit" value="Submit">Submit</button>
         </form>
 {% endblock %}

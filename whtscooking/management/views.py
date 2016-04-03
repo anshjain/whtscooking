@@ -12,7 +12,7 @@ from django.views.generic.edit import FormView
 from django.conf import settings
 
 from .forms import FormUserRatings, VendorMenuForm, LocationForm
-from .models import UserRating, Vendor, VendorMenu
+from .models import UserRating, Vendor, VendorMenu, MenuCard, MenuType, HarmanLocation
 from .contants import LOCATION_COOKIES, DATE_STRING
 
 
@@ -95,9 +95,23 @@ def create_menu(request):
     loc_code = request.COOKIES.get(LOCATION_COOKIES)
     vendor_code = 1
     form_class = VendorMenuForm(request.POST or None,
-                                initial={"vendor": "1", "location": loc_code})
+                                initial={"vendor": vendor_code, "location": loc_code})
     print "loc_name -- %s -- %s" % (loc_code, vendor_code)
     template_name = "vendor_menu.html"
+
+    if request.method == 'POST':
+        vendor = Vendor.objects.filter(id=vendor_code).first()
+        menu_type = MenuType.objects.filter(id=form_class.data.get('menu_type')).first()
+        loc_code = HarmanLocation.objects.get(id=loc_code)
+        menu_items = []
+        for item in form_class.data.getlist('menu'):
+            print loc_code, vendor, form_class.data.get('menu_type'), item
+            item_obj = MenuCard.objects.filter(id=item).first()
+            menu_items.append(VendorMenu(menu=item_obj, menu_type=menu_type,
+                                         location=loc_code, vendor=vendor))
+
+        VendorMenu.objects.bulk_create(menu_items)
+        menu_items.errors['menu'] = []
 
     context = {'form': form_class}
     return render_to_response(template_name, context,
@@ -166,15 +180,15 @@ class UserRatings(FormView):
                                   'rating_like': 0,
                                   'rating_not_like': 0}
         for vendor in Vendor.objects.all():
-            user_rating_dict.update({vendor.user: copy.copy(user_rating_inner_dict)})
+            user_rating_dict.update({vendor.user.first_name: copy.copy(user_rating_inner_dict)})
 
         for vendor in Vendor.objects.all():
             for user_rating in UserRating.objects.all():
-                if user_rating.rating == '1' and vendor.id == user_rating.vendor_id_id:
-                    user_rating_dict[vendor.user]['rating_super_like'] += 1
-                elif user_rating.rating == '2' and vendor.id == user_rating.vendor_id_id:
-                    user_rating_dict[vendor.user]['rating_like'] += 1
-                elif user_rating.rating == '3' and vendor.id == user_rating.vendor_id_id:
-                    user_rating_dict[vendor.user]['rating_not_like'] += 1
+                if user_rating.rating == '1' and vendor == user_rating.vendor:
+                    user_rating_dict[vendor.user.first_name]['rating_super_like'] += 1
+                elif user_rating.rating == '2' and vendor == user_rating.vendor:
+                    user_rating_dict[vendor.user.first_name]['rating_like'] += 1
+                elif user_rating.rating == '3' and vendor == user_rating.vendor:
+                    user_rating_dict[vendor.user.first_name]['rating_not_like'] += 1
 
         return user_rating_dict
