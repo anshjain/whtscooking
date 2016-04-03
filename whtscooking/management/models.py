@@ -82,7 +82,7 @@ class VendorMenu(TimeStampedModel):
     create_date = models.DateField('Creation Date', auto_now_add=True)
 
     class Meta:
-        unique_together = ('menu', 'vendor')
+        unique_together = ('menu', 'vendor', 'create_date', 'location')
 
 
 class UserRating(TimeStampedModel):

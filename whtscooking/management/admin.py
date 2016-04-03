@@ -37,7 +37,7 @@ class UserRatingAdmin(admin.ModelAdmin):
 class VendorMenuAdmin(admin.ModelAdmin):
 
     model = VendorMenu
-    list_display = ('vendor', 'menu', 'menu_type', 'create_date')
+    list_display = ('location', 'vendor', 'menu', 'menu_type', 'create_date')
 
 
 class HarmanLocationAdmin(admin.ModelAdmin):

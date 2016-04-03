@@ -18,20 +18,22 @@ class VendorMenuForm(forms.Form):
     vchoices = [(obj.id, obj.item_name) for obj in MenuCard.objects.all()]
 
     vendor = forms.HiddenInput()
-    menu_type = forms.ChoiceField(choices=mchoices, widget=forms.RadioSelect(), label=('Menu Type'))
-    menu = forms.ChoiceField(choices=vchoices, label=('Menu Item'), widget = forms.CheckboxSelectMultiple())
+    location = forms.HiddenInput()
+    menu_type = forms.ChoiceField(choices=mchoices, widget=forms.RadioSelect(), label='Menu Type')
+    menu = forms.ChoiceField(choices=vchoices, label='Menu Item', widget=forms.CheckboxSelectMultiple())
 
     class Meta:
         model = VendorMenu
-        fields = ('vendor', 'menu_type', 'menu')
+        fields = ('vendor', 'location', 'menu_type', 'menu')
 
 
 class LocationForm(forms.Form):
     """
     Form to lock user location and based on which will identify food menu and rating to the vendor.
     """
-    lochoices = [(obj.id, obj.type_name) for obj in HarmanLocation.objects.all()]
-    location = forms.ChoiceField(choices=lochoices, label="office location")
+    lochoices = [('--', 'select')] + [(obj.id, obj.location) for obj in HarmanLocation.objects.all()]
+    location = forms.ChoiceField(choices=lochoices, label="office location",
+                                 widget=forms.Select(attrs={'onchange': 'this.form.submit();'}))
 
     class Meta:
         model = HarmanLocation
