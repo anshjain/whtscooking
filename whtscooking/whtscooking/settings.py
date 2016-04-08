@@ -106,3 +106,6 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import datetime
+RATING_TIME = datetime.time(7, 0, 0)

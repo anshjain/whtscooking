@@ -132,11 +132,13 @@ class UserRatings(FormView):
         vendor_id = self.request.POST['vendor']
         rating_id = self.request.POST['rating']
         user_agent = self.request.META['HTTP_USER_AGENT']
-        remote_ip = self.request.META.get('REMOTE_ADDR')
+        current_time = datetime.datetime.utcnow().time()
+        if current_time > settings.RATING_TIME:
+            status = 2
+            message = "Rating can't be done before {} PM".format(settings.RATING_TIME)
+            return {'status': status, 'message': message}
 
-        # user_hash = hashlib.sha1(remote_ip + user_agent).hexdigest()
-        user_hash = hashlib.sha1(str(datetime.datetime.now())).hexdigest()
-
+        user_hash = hashlib.sha1(str(datetime.date.today()) + user_agent).hexdigest()
         try:
             vendor = Vendor.objects.get(id=vendor_id)
             user_rate, created = UserRating.objects.get_or_create(
@@ -147,7 +149,7 @@ class UserRatings(FormView):
 
             if created:
                 status = 2
-                message = 'Thanks For the rating, Its saved in our Database successfully'
+                message = 'Thanks For the update your rating, Its saved in our Database successfully'
             else:
                 user_rate.why = self.request.POST.get('why', '')
                 user_rate.imp = self.request.POST.get('imp', '')
