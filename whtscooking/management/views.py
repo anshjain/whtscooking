@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 
-import hashlib
 import copy
 import datetime
+import hashlib
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render_to_response
-from django.template import RequestContext
-from django.views.generic.base import TemplateView
-from django.views.generic.edit import FormView
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from django.shortcuts import redirect, render_to_response
+from django.template import RequestContext
+from django.views.generic.edit import FormView
 
-from .forms import FormUserRatings, VendorMenuForm, LocationForm
-from .models import UserRating, Vendor, VendorMenu, MenuCard, MenuType, HarmanLocation
+
 from .contants import LOCATION_COOKIES, DATE_STRING
+from .forms import FormUserRatings, LocationForm, VendorMenuForm
+from .models import UserRating, Vendor, VendorMenu, MenuCard, MenuType, HarmanLocation
 
 
 def set_cookie(response, key, value, days_expire=7):
@@ -73,6 +74,9 @@ def vendor_menu(request):
     vendor_menus = []
     loc_name = request.COOKIES.get(LOCATION_COOKIES)
 
+    if not loc_name:
+        return redirect(reverse('static-home'))
+
     for vendor in Vendor.objects.filter(user__is_active=True):
         menu_item = VendorMenu.objects.\
             filter(create_date=current_date).filter(location=loc_name).\
@@ -93,11 +97,13 @@ def create_menu(request):
     :return:
     """
     loc_code = request.COOKIES.get(LOCATION_COOKIES)
-    vendor_code = 1
+    vendor_code = 1  # should appear from logged in user only.
     form_class = VendorMenuForm(request.POST or None,
                                 initial={"vendor": vendor_code, "location": loc_code})
-    print "loc_name -- %s -- %s" % (loc_code, vendor_code)
     template_name = "vendor_menu.html"
+
+    if not loc_code:
+        return redirect(reverse('static-home'))
 
     if request.method == 'POST':
         vendor = Vendor.objects.filter(id=vendor_code).first()
@@ -105,13 +111,12 @@ def create_menu(request):
         loc_code = HarmanLocation.objects.get(id=loc_code)
         menu_items = []
         for item in form_class.data.getlist('menu'):
-            print loc_code, vendor, form_class.data.get('menu_type'), item
             item_obj = MenuCard.objects.filter(id=item).first()
             menu_items.append(VendorMenu(menu=item_obj, menu_type=menu_type,
                                          location=loc_code, vendor=vendor))
 
         VendorMenu.objects.bulk_create(menu_items)
-        menu_items.errors['menu'] = []
+        form_class.errors['menu'] = []
 
     context = {'form': form_class}
     return render_to_response(template_name, context,

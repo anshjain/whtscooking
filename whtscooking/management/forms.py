@@ -18,8 +18,8 @@ class VendorMenuForm(forms.Form):
     mchoices = [(obj.id, obj.type_name) for obj in MenuType.objects.all()]
     vchoices = [(obj.id, obj.item_name) for obj in MenuCard.objects.all()]
 
-    vendor = forms.HiddenInput()
-    location = forms.HiddenInput()
+    vendor = forms.CharField(widget=forms.HiddenInput(), required=True)
+    location = forms.CharField(widget=forms.HiddenInput(), required=True)
     menu_type = forms.ChoiceField(choices=mchoices, widget=forms.RadioSelect(), label='Menu Type')
     menu = forms.ChoiceField(choices=vchoices, label='Menu Item', widget=forms.CheckboxSelectMultiple())
 
