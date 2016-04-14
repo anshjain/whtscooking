@@ -77,14 +77,19 @@ def vendor_menu(request):
     if not loc_name:
         return redirect(reverse('static-home'))
 
-    for vendor in Vendor.objects.filter(user__is_active=True):
+    vendors = Vendor.objects.filter(user__is_active=True)
+    locations = HarmanLocation.objects.filter(is_active=True)
+
+    for vendor in vendors:
         menu_item = VendorMenu.objects.\
             filter(create_date=current_date).filter(location=loc_name).\
-            filter(vendor=vendor).values('menu_type__type_name', 'menu__item_name')
+            filter(vendor=vendor).values('menu_type__type_name', 'menu__food_type', 'menu__item_name',
+                                         'menu__price', 'menu__description')
 
         vendor_menus.append((vendor.user.first_name, menu_item))
 
-    context = {'vendor_menus': vendor_menus, 'current_date': current_date}
+    context = {'vendor_menus': vendor_menus, 'current_date': current_date,
+               'vendors': vendors, 'locations': locations}
     return render_to_response(template, context,
                               context_instance=RequestContext(request))
 
