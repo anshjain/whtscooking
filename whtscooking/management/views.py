@@ -69,7 +69,7 @@ def vendor_menu(request):
     :param request:
     :return:
     """
-    template = 'home.html'
+    template = 'user_dashboard.html'
     current_date = datetime.datetime.now()
     vendor_menus = []
     loc_name = request.COOKIES.get(LOCATION_COOKIES)
