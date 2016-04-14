@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>What's Coocking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap-combobox/css/bootstrap-combobox.css">
+    <script src="assets/js/TweenLite.js"></script>
+    <script src="assets/js/login.js"></script>
+    <!-- Rating Plugin css and js -->
+    <script src="bower_components/bootstrap-star-rating/js/star-rating.js" type="text/javascript"></script>
+    <link href="bower_components/bootstrap-star-rating/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+    <!--Ends Rating Plugin css and js -->
+    <!-- custom JS and CSS -->
+    <script src="assets/js/userDashboard.js"></script>
+    <link rel="stylesheet" href="assets/css/user-dashboard.css">
+    <!-- custom js -->
+</head>
+
+<body>
+    <div class="container">
+        <!-- Container header -->
+        <div class="row user-dashboard-header"></div>
+        <!-- Ends Container header -->
+        <!-- Container header -->
+        <div class="row">
+            
+        
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="row user-dashboard-filters">
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="id_select_loc">Select Location</label>
+                        <select class="form-control combobox" id="id_select_location">
+                            <option></option>
+                            <option>Pune - Amar Apex</option>
+                            <option>Pune - Harman</option>
+                            <option>Banglore - Manyata</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 vender-select-wrap">
+                    <div class="form-group">
+                        <label for="id_select_vender">Select vender</label>
+                        <select class="form-control combobox" id="id_select_vender">
+                            <option>All</option>
+                            <option>Anna</option>
+                            <option>Sahyadri</option>
+                            <option>Omletwala</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div><!--filter column-->
+        </div><!--row ends-->
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#menu">Todays Menu</a></li>
+            <li><a data-toggle="tab" href="#reviews">Reviews</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="menu" class="tab-pane fade in active">
+                <!-- Ends Container header -->
+                <div class="panel-group" id="accordion">
+                    <!-- accordion 1 -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <!-- panel-heading -->
+                            <h4 class="panel-title"> <!-- title 1 -->
+                                <a data-toggle="collapse" data-parent="#accordion" href="#accordionOne">
+                                  Anna
+                                </a>
+                           </h4>
+                        </div>
+                        <!-- panel body -->
+                        <div id="accordionOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <!-- Todays menu -->
+                                <div class="todays-menu">
+                                    <!-- Breakfast menu-->
+                                    <div class="breakfast-menu  row">
+                                        <h4 class="meal-header">Breakfast</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Breakfast menu-->
+                                    <div class="divider"></div>
+                                    <!-- Lunch menu-->
+                                    <div class="lunch-menu row">
+                                        <h4 class="meal-header">Lunch</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Lunch menu-->
+                                    <div class="divider"></div>
+                                    <!-- Evening Snacks menu-->
+                                    <div class="snacks-menu row">
+                                        <h4 class="meal-header">Evening-snacks</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Evening Snacks-->
+                                    <div class="divider"></div>
+                                    <!-- Dinner menu-->
+                                    <div class="dinner-menu  row">
+                                        <h4 class="meal-header">Dinner</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Dinner menu-->
+                                </div>
+                                <!-- ends todays menu -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion 2-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <!-- panel-heading -->
+                            <h4 class="panel-title"> <!-- title 1 -->
+                                <a data-toggle="collapse" data-parent="#accordion" href="#accordionTwo">
+                                  Sahyadri
+                                </a>
+                           </h4>
+                        </div>
+                        <!-- panel body -->
+                        <div id="accordionTwo" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <!-- Todays menu -->
+                                <div class="todays-menu">
+                                    <!-- Breakfast menu-->
+                                    <div class="breakfast-menu  row">
+                                        <h4 class="meal-header">Breakfast</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Breakfast menu-->
+                                    <div class="divider"></div>
+                                    <!-- Lunch menu-->
+                                    <div class="lunch-menu row">
+                                        <h4 class="meal-header">Lunch</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Lunch menu-->
+                                    <div class="divider"></div>
+                                    <!-- Evening Snacks menu-->
+                                    <div class="snacks-menu row">
+                                        <h4 class="meal-header">Evening-snacks</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Evening Snacks-->
+                                    <div class="divider"></div>
+                                    <!-- Dinner menu-->
+                                    <div class="dinner-menu  row">
+                                        <h4 class="meal-header">Dinner</h4>
+                                        <div class="inner-menu">
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-left">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                                                <div class="menu-list">
+                                                    <!-- Menu item heading -->
+                                                    <h3>Non-veg</h3>
+                                                    <!-- Image for menu list -->
+                                                    <img class="img-responsive" src="assets/images/menu3.jpg" alt="">
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Chicken Curie</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Bone less</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$4</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Consecrate Anglicising</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$5</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <!-- Menu list items -->
+                                                    <div class="menu-list-item border-zero">
+                                                        <!-- Heading / Dish name -->
+                                                        <h4 class="pull-left">Creed do Modernism</h4>
+                                                        <!-- Dish price -->
+                                                        <span class="price pull-right">$2</span>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ends Dinner menu-->
+                                </div>
+                                <!-- ends todays menu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Ends Panel-group-->
+            </div>
+            <!-- Ends Menu Tab-->
+            <!--Ends Tab menu content-->
+            <div id="reviews" class="tab-pane fade">
+                <h3>Vender-Name</h3>Overall Rating
+                <br>
+                <input id="id_vendor_overall_rating" type="number" class="rating-loading" value="3" data-rtl="false">
+                <br>
+                <br> How do yopu like food today ?
+                <input id="id_vendor_rating" type="number" class="rating" min=1 max=5 step=1 data-size="lg" data-rtl="false">
+                <br>
+                <textarea name="txtcomments" rows="10"></textarea>
+            </div>
+            <!--Ends Reviews tab-->
+        </div>
+        <!-- Outermost container-->
+        <!-- footer-->
+        <div class="footer">
+        </div>
+</body>
+
+</html>
