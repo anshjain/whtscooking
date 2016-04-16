@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>What's Coocking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap-combobox/css/bootstrap-combobox.css">
+    <script src="assets/js/TweenLite.js"></script>
+    <script src="assets/js/login.js"></script>
+    <!-- Rating Plugin css and js -->
+    <script src="bower_components/bootstrap-star-rating/js/star-rating.js" type="text/javascript"></script>
+    <link href="bower_components/bootstrap-star-rating/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+    <!--Ends Rating Plugin css and js -->
+    <!-- custom JS and CSS -->
+    <!-- bower multiselect-->
+    <script src="bower_components/multiselect/js/jquery.multi-select.js" type="text/javascript"></script>
+    <link href="bower_components/multiselect/css/multi-select.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="assets/js/userDashboard.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- custom js -->
+</head>
+
+<body>
+    <!-- Container header -->
+    <div class="container">
+        <div class="row user-dashboard-header"></div>
+    </div>
+    <!-- Ends Container header -->
+    <div class="container main-section">
+        <!-- Select meal type header -->
+        <div class="row select-menu-row">
+            <div class="col-md-6 col-sm-12 col-sx-12">
+                <h4 class="section-header">Crate and Edit Menu</h4>
+                <br>
+                <label>Select Menu</label>
+                <form role="form" class="form " id="id_meal_type_form">
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="id_select_breakfast" class="meal-selector" checked="checked" name="id_select_meal" />Breakfast</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="id_select_lunch" class="meal-selector" name="id_select_meal" />Lunch</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="id_select_snacks" class="meal-selector" name="id_select_meal" />Evening Snacks</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" id="id_select_dinner" class="meal-selector" name="id_select_meal" />Dinner</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--Ends select meal-->
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#createMenu">Create Todays Menu</a></li>
+            <li><a data-toggle="tab" href="#addItem">Add menu items</a></li>
+            <li><a data-toggle="tab" href="#viewRating">View Rating</a></li>
+        </ul>
+        <div class="tab-content">
+            <!-- Create todays menu -->
+            <!-- Lunch -->
+            <div id="createMenu" class="tab-pane fade in active">
+                <div class="menu-create-wrap menu-create-wrap-breakfast">
+                    <h4 class="">Crate Breakfast Menu</h4>
+                    <div class="row menu-creator">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <select multiple="multiple" id="id_breakfast_selector" name="id_breakfast_selector">
+                                <!-- Create options using backend -->
+                                <option value="1">elem 1</option>
+                                <option value="2">elem 2</option>
+                                <option value="3">elem 3</option>
+                                <option value="4">elem 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--Lunch-->
+                <div class="menu-create-wrap menu-create-wrap-lunch hide">
+                    <h4 class="">Crate Lunch Menu</h4>
+                    <div class="row menu-creator">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <select multiple="multiple" id="id_lunch_selector" name="id_lunch_selector">
+                                <!-- Create options using backend -->
+                                <option value="1">elem 1</option>
+                                <option value="2">elem 2</option>
+                                <option value="3">elem 3</option>
+                                <option value="4">elem 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--Evening Snacks -->
+                <div class="menu-create-wrap menu-create-wrap-snacks hide">
+                    <h4 class="">Crate Snacks Menu</h4>
+                    <div class="row menu-creator">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <select multiple="multiple" id="id_snacks_selector" name="id_snacks_selector">
+                                <!-- Create options using backend -->
+                                <option value="1">elem 1</option>
+                                <option value="2">elem 2</option>
+                                <option value="3">elem 3</option>
+                                <option value="4">elem 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dinner -->
+                <div class="menu-create-wrap menu-create-wrap-dinner hide">
+                    <h4 class="">Crate Dinner Menu</h4>
+                    <div class="row menu-creator">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <select multiple="multiple" id="id_dinner_selector" name="id_dinner_selector">
+                                <!-- Create options using backend -->
+                                <option value="1">elem 1</option>
+                                <option value="2">elem 2</option>
+                                <option value="3">elem 3</option>
+                                <option value="4">elem 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ends create todays menu -->
+            <!--Add item content-->
+            <div id="addItem" class="tab-pane fade">
+                Add Menu item
+            </div>
+            <!--Ends add item content-->
+            <!-- Reviews tab-->
+            <div id="viewRating" class="tab-pane fade">
+                View Reviews
+            </div>
+            <!--Ends Reviews tab-->
+        </div>
+        <!-- Outermost container-->
+        <div class="container">
+        <div class="row buttons-wrap">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <button class="btn btn-primary pull-right">Create</button>
+                <button class="btn btn-default pull-right">Cancel</button>
+            </div>
+        </div>
+            
+        </div>
+</body>
+
+</html>
