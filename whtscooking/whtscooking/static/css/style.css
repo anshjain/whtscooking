@@ -1,0 +1,514 @@
+/************************
+Designed by : http://responsivewebinc.com
+************************/
+
+
+/*
+ * Fonts
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+.footer {
+    min-height: 100px;
+    background-color: #eee;
+}
+
+.main-section {
+    border:1px solid #dde;
+}
+
+.user-dashboard-filters {
+    margin: 10px 0 20px -15px;
+}
+
+.meal-header {
+    color: #87870A;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.buttons-wrap {
+margin:20px 0 20px 0;
+}
+
+.buttons-wrap .btn{
+    margin:10px;
+}
+.section-header {
+    color: #87870A;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.divider {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.user-dashboard-header {
+    border: 5px solid #BEC8D4;
+    height: 200px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.tab-content {
+    margin-top: 40px;
+}
+
+.inner-menu .menu-list {}
+
+.inner-menu .menu-list h3 {}
+
+
+/* 
+ * Basic CSS starts
+ */
+
+body {
+    background: #fff url('../img/crossword.png') repeat;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Droid Serif', serif;
+    font-weight: 400;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+a {}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    outline: 0;
+    text-decoration: none;
+}
+
+hr {}
+
+:focus {
+    outline: none;
+}
+
+::-moz-focus-inner {
+    border: 0;
+}
+
+form label {
+    font-weight: normal;
+    color: #9a9a9a;
+}
+
+form select {
+    padding-left: 7px !important
+}
+
+form select,
+form textarea {
+    color: #9a9a9a !important;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form select,
+form textarea {
+    box-shadow: none !important;
+}
+
+.table-responsive {
+    border-radius: 4px;
+}
+
+table {
+    background: #fff;
+}
+
+.padd {
+    padding: 50px 0;
+}
+
+.social a i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    -webkit-transition: background 2s ease;
+    -moz-transition: background 2s ease;
+    -o-transition: background 2s ease;
+    -ms-transition: background 2s ease;
+    transition: background 2s ease;
+}
+
+.social a,
+.social a:hover {
+    border: 0px;
+    text-decoration: none;
+}
+
+
+/*
+ * Quotes
+ */
+
+.quote {
+    display: inline-block;
+    font-family: 'Georgia' 'Times New Roman', serif;
+    text-shadow: none !important;
+    position: relative;
+}
+
+
+/*
+ * Drop Down CSS
+ */
+
+.dropdown-menu:after,
+.dropdown-menu:before {
+    bottom: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.dropdown-menu:after {
+    border-color: rgba(75, 170, 211, 0);
+    border-width: 6px;
+    right: 35px;
+    border-bottom-color: transparent;
+}
+
+.dropdown-menu:before {
+    margin-left: -3px;
+    border-color: rgba(75, 170, 211, 0);
+    border-width: 9px;
+    right: 35px;
+}
+
+.dropdown-menu>li>a {
+    padding-left: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-size: 14px;
+}
+
+.dropdown-menu>li>a:hover {
+    background: #f1f1f1;
+}
+
+
+/*
+ * "border-zero" Class only for "Menu" Inner page
+ */
+
+.border-zero {
+    border: 0 !important;
+    padding: 0 !important;
+}
+
+
+/*
+ * Default Heading
+ */
+
+.default-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.default-heading img {
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+
+.default-heading h2 {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-family: 'Droid Serif', serif;
+    text-transform: uppercase;
+    font-size: 35px;
+    color: #676767;
+}
+
+.default-heading p {
+    /*  max-width: 500px; */
+    margin: 0 auto;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #959595;
+}
+
+.default-heading .border {
+    margin: 0px;
+    height: 5px;
+    border: 1px dashed #dedede;
+}
+
+
+/*
+ * Dishes
+ */
+
+.dishes .dishes-item-container {
+    /* max-width: 250px; */
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.dishes .img-frame {
+    position: relative;
+    z-index: 10;
+    /*  max-width: 300px; */
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 400px;
+    cursor: pointer;
+}
+
+.dishes .img-frame img {
+    border-radius: 400px;
+}
+
+.dishes .img-frame .img-frame-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 400px;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.dishes .img-frame:hover .img-frame-hover {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=1);
+}
+
+.dishes .img-frame .img-frame-hover a {
+    color: #fff;
+}
+
+.dishes .img-frame .img-frame-hover a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 22px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 60px;
+}
+
+.dishes .dish-details {
+    position: relative;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.dishes .dish-details h3 {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #676767;
+}
+
+.dishes .dish-details p {
+    font-size: 13px;
+    color: #9a9a9a;
+}
+
+.dishes .dish-details a.btn {
+    margin-top: 15px;
+}
+
+
+/*
+ * Menu Section
+ */
+
+.menu {
+    border-top: 1px solid #f1f1f1;
+}
+
+.menu .menu-head {
+    position: relative;
+}
+
+.menu h3 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: inline-block;
+    margin-top: -45px;
+    padding: 5px 0;
+    font-size: 60px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu .menu-head .title-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -75px;
+    margin-top: 30px;
+    /*  width: 150px; */
+    height: 5px;
+}
+
+.menu img.menu-img {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.menu .menu-details {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.menu .menu-details ul {
+    margin: 0;
+}
+
+.menu .menu-details li .menu-list-item {
+    padding: 12px 15px;
+    color: #fff;
+    border-top: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.menu .menu-details li:first-child .menu-list-item {
+    border-top: 0;
+}
+
+.menu .menu-details ul li a {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.menu .menu-details ul li i {
+    display: inline-block;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.menu .menu-details ul li span {
+    display: inline-block;
+    width: 30px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+
+/*
+ * Menu Page
+ */
+
+.inner-menu .menu-list {
+    margin-top: 15px;
+}
+
+.inner-menu .menu-list h3 {
+    border-bottom: 4px double #eee;
+    color: #B23E3C;
+    font-size: 20px;
+    position: static;
+    padding-bottom: 6px;
+    text-align: center;
+    ;
+}
+
+.inner-menu .menu-list img {
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.inner-menu .menu-list .menu-list-item {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.inner-menu .menu-list .menu-list-item h4 {
+    margin: 0;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.inner-menu .menu-list .menu-list-item span.price {
+    font-size: 15px;
+    line-height: 23px;
+    font-weight: 700;
+}
+
+.inner-menu .menu-list .menu-list-item p {
+    font-size: 13px;
+    color: #9a9a9a;
+}

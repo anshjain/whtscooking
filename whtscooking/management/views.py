@@ -103,9 +103,11 @@ def create_menu(request):
     """
     loc_code = request.COOKIES.get(LOCATION_COOKIES)
     vendor_code = 1  # should appear from logged in user only.
+    breakfast = 1  # get value of breakfast value from menu type.
     form_class = VendorMenuForm(request.POST or None,
-                                initial={"vendor": vendor_code, "location": loc_code})
-    template_name = "vendor_menu.html"
+                                initial={"vendor": vendor_code, "location": loc_code,
+                                         "menu_type": breakfast})
+    template_name = "vendor_dashboard.html"
 
     if not loc_code:
         return redirect(reverse('static-home'))

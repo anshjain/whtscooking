@@ -21,7 +21,7 @@ class VendorMenuForm(forms.Form):
     vendor = forms.CharField(widget=forms.HiddenInput(), required=True)
     location = forms.CharField(widget=forms.HiddenInput(), required=True)
     menu_type = forms.ChoiceField(choices=mchoices, widget=forms.RadioSelect(), label='Menu Type')
-    menu = forms.ChoiceField(choices=vchoices, label='Menu Item', widget=forms.CheckboxSelectMultiple())
+    menu = forms.MultipleChoiceField(choices=vchoices, label='Menu Item', widget=forms.CheckboxSelectMultiple)
 
     class Meta:
         model = VendorMenu
