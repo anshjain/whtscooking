@@ -54,6 +54,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.request',
+)
+
 ROOT_URLCONF = 'whtscooking.urls'
 
 TEMPLATES = [
@@ -99,13 +109,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = (
-		    BASE_DIR + '/whtscooking/static',)
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+STATIC_ROOT = 'staticfiles'
 
 STATIC_URL = '/static/'
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+STATICFILES_DIRS = (os.path.join(SITE_ROOT, 'static/'),)
+
 
 import datetime
 RATING_TIME = datetime.time(7, 0, 0)

@@ -41,7 +41,12 @@ class MenuCard(TimeStampedModel):
     """
     item_name = models.CharField(max_length=30, verbose_name="Item Name")
     description = models.TextField(verbose_name="Description")
-    price = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name="Price")
+    price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Price")
+    food_choice = Choices(('1', 'Veg'),
+                          ('2', 'Non-Veg'))
+    food_type = models.CharField(choices=food_choice,
+                              max_length=10,
+                              verbose_name='Food Type')
 
     def __unicode__(self):
         return u'{}-{}'.format(self.item_name, self.price)
