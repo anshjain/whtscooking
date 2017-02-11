@@ -1,0 +1,8 @@
+Django==1.8.3
+wsgiref==0.1.2
+xlrd==0.9.3
+django-bootstrap3
+django-model-utils==2.0.3
+django-bootstrap-form
+django-phonenumber-field
+ipdb
