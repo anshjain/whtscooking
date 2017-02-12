@@ -11,6 +11,8 @@ USER_TYPES = [
 
 class LoginForm(forms.Form):
     """ login form """
-    user_type = forms.ChoiceField(choices=USER_TYPES, widget=forms.RadioSelect())
-    username = forms.CharField(required=True)
-    password = forms.CharField(required=True, widget=forms.PasswordInput)
+    user_type = forms.ChoiceField(choices=USER_TYPES, widget=forms.RadioSelect(), initial=EMP_USER)
+    username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control',
+                                                                            'placeholder': 'username'}))
+    password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                                'placeholder': 'password'}))

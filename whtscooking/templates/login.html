@@ -29,13 +29,14 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form id="id_login_form" name="id_login_form" action="POST" accept-charset="UTF-8" role="form" class="form-signin">
+                                    <form id="id_login_form" name="id_login_form" accept-charset="UTF-8" role="form" class="form-signin">
                                         <fieldset>
                                             <label class="panel-login">
                                                 <div class="login_result"></div>
                                             </label>
-                                            <input class="form-control" placeholder="Username" id="username" type="text">
-                                            <input class="form-control" placeholder="Password" id="password" type="password">
+                                            {{form.user_type}}
+                                            {{form.username}}
+                                            {{form.password}}
                                             </br>
                                             <input class="btn btn-lg btn-primary btn-block" type="submit" id="login" value="Login">
                                         </fieldset>
