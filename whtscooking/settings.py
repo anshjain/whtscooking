@@ -36,7 +36,7 @@ SECRET_KEY = '(@m0ue18x#!&6f#cx$+0k^$e+a=q8*smx$%#7zi2_)!_-$peik'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,7 +75,7 @@ ROOT_URLCONF = 'whtscooking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'whtscooking', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,3 +120,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "whtscooking", "static"),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static");
+
+
+# Media files (Audio, Video)
+# https://docs.djangoproject.com/en/1.10/ref/settings/#std:setting-MEDIA_ROOT
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# Authentication
+# https://docs.djangoproject.com/en/1.10/ref/settings/#login-url
+LOGIN_URL = '/login'
