@@ -50,11 +50,13 @@
                                                             <h3>{{type_name | title}}</h3>
                                                             <img class="img-responsive" src="/static/images/menu3.jpg" alt="">
                                                             <div class="menu-list-item">
-                                                                <!-- Heading / Dish name -->
-                                                                <h4 class="pull-left">Panner Curie</h4>
-                                                                <!-- Dish price -->
-                                                                <span class="price pull-right">$5</span>
-                                                                <div class="clearfix"></div>
+                                                                {% for food_item in items %}
+                                                                    <!-- Heading / Dish name -->
+                                                                    <h4 class="pull-left">{{food_item.name}}</h4>
+                                                                    <!-- Dish price -->
+                                                                    <span class="price pull-right">${{food_item.price}}</span>
+                                                                    <div class="clearfix"></div>
+                                                                {% endfor %}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -71,18 +73,7 @@
             </div>
         </div>
         <!-- Ends Menu Tab-->
-        <!--Ends Tab menu content-->
-        <div id="reviews" class="tab-pane fade">
-            <h3>Vender-Name</h3>Overall Rating
-            <br>
-            <input id="id_vendor_overall_rating" type="number" class="rating-loading" value="3" data-rtl="false">
-            <br>
-            <br> How do yopu like food today ?
-            <input id="id_vendor_rating" type="number" class="rating" min=1 max=5 step=1 data-size="lg" data-rtl="false">
-            <br>
-            <textarea name="txtcomments" rows="10"></textarea>
-        </div>
-        <!--Ends Reviews tab-->
+        {% include 'rating-form.html'%}
     </div>
 {% endblock %}
 
