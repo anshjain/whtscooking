@@ -35,9 +35,9 @@ class LoginView(FormView):
             user = authenticate(username=form.cleaned_data.get('username'),
                                 password=form.cleaned_data.get('password'))
 
-        if user is not None:
-            login(self.request, user)
-            return HttpResponseRedirect(reverse('home'))
+            if user is not None:
+                login(self.request, user)
+                return HttpResponseRedirect(reverse('vendor-home'))
         form.errors.update({'username': message})
         return render_to_response(self.template_name, context_instance=RequestContext(self.request, {'form': form}))
 

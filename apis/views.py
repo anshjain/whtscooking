@@ -12,3 +12,13 @@ class HomeView(TemplateView):
         context_data['timings'] = ['Breakfast', 'Lunch', 'Evening-snacks', 'Dinner']
         context_data['food_types'] = ['veg', 'non-veg']
         return context_data
+
+
+class VendorView(TemplateView):
+    """ Vendor home page """
+    template_name = "vendor-home.html"
+
+    def get_context_data(self, **kwargs):
+        context_data = super(VendorView, self).get_context_data(**kwargs)
+        context_data['timings'] = ['Breakfast', 'Lunch', 'Snacks', 'Dinner']
+        return context_data
