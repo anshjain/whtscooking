@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.template.context import RequestContext
 from django.views.generic import FormView
 
-from forms import LoginForm, EMP_USER
+from forms import LoginForm, EMP_USER, VDOR_USER
 
 
 class LoginView(FormView):
@@ -18,6 +18,7 @@ class LoginView(FormView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
+            # TODO: set user type in request session.
             return HttpResponseRedirect(reverse('home'))
         return super(LoginView, self).get(self, request, *args, **kwargs)
 
@@ -39,6 +40,7 @@ class LoginView(FormView):
                 login(self.request, user)
                 return HttpResponseRedirect(reverse('vendor-home'))
         form.errors.update({'username': message})
+        # TODO: set user type in request session.
         return render_to_response(self.template_name, context_instance=RequestContext(self.request, {'form': form}))
 
 

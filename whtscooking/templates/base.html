@@ -15,7 +15,9 @@
 
     <body>
         <div class="container">
+            {% block header%}
                 {% include 'partials/header.html' %}
+            {% endblock %}
             {% block content %}
             {% endblock %}
         </div>
