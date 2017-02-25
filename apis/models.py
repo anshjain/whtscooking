@@ -7,13 +7,19 @@ class Location(models.Model):
     created_at = models.DateTimeField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return "{}".format(self.name)
+
 
 class Vendor(models.Model):
     """ model representing the vendors """
     name = models.CharField(max_length=100)
-    location = models.ForeignKey(Location)
+    location = models.ManyToManyField(Location)
     created_at = models.DateTimeField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return "{}".format(self.name)
 
 
 class FoodItems(models.Model):
@@ -24,6 +30,9 @@ class FoodItems(models.Model):
     created_at = models.DateTimeField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return "{}".format(self.item)
+
 
 class Service(models.Model):
     """ model representing the type of services delivered by the vendor """
@@ -31,24 +40,30 @@ class Service(models.Model):
     created_at = models.DateTimeField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return "{}".format(self.name)
+
 
 class VendorMenu(models.Model):
     """ model representing the vendors menu """
     vendor = models.ForeignKey(Vendor)
     service = models.ForeignKey(Service)
+    location = models.ManyToManyField(Location)
     created_at = models.DateTimeField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
 
-    @property
-    def location(self):
-        return self.vendor.location.name
+    def __unicode__(self):
+        return "{} -- {} -- {}".format(self.vendor.name, self.service.name, self.location.name)
+
+    class Meta:
+        unique_together = ('vendor', 'service')
 
 
 class VendorMenuItems(models.Model):
     """ model representing different items in the vendors menu """
     vendor_menu = models.ForeignKey(VendorMenu)
     food_item = models.ForeignKey(FoodItems)
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
 
     @property
@@ -63,6 +78,9 @@ class VendorMenuItems(models.Model):
     def item(self):
         return self.food_item.name
 
+    def __unicode__(self):
+        return "{}".format(self.vendor_menu)
+
 
 class UserRating(models.Model):
     """ model representing user ratings """
@@ -72,3 +90,6 @@ class UserRating(models.Model):
     comments = models.TextField()
     created_at = models.DateTimeField(auto_created=True)
     last_modified = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return "{}".format(self.vendor)

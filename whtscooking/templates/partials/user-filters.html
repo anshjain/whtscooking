@@ -6,10 +6,9 @@
                 <div class="form-group">
                     <label for="id_select_loc">Select Location</label>
                     <select class="form-control combobox" id="id_select_location">
-                        <option></option>
-                        <option>Pune - Amar Apex</option>
-                        <option>Pune - Harman</option>
-                        <option>Banglore - Manyata</option>
+                        {% for location in locations %}
+                            <option>{{location}}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -18,8 +17,9 @@
                     <label for="id_select_vender">Select vender</label>
                     <select class="form-control combobox" id="id_select_vender">
                         <option selected>All</option>
-                        <option>Anna</option>
-                        <option>Sahyadri</option>
+                        {% for vendor in vendors %}
+                            <option>{{vendor}}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>

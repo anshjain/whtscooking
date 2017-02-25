@@ -21,37 +21,37 @@
         <div id="menu" class="tab-pane fade in active">
             <!-- Ends Container header -->
             <div class="panel-group" id="accordion">
-                {% for vendor_name in vendors %}
+                {% for vendor, services in vendors.items %}
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <!-- panel-heading -->
                             <h4 class="panel-title"> <!-- title 1 -->
-                                <a data-toggle="collapse" data-parent="#accordion" href="#accordion{{vendor_name}}">
-                                  {{vendor_name|title}}
+                                <a data-toggle="collapse" data-parent="#accordion" href="#accordion{{vendor}}">
+                                  {{vendor|title}}
                                 </a>
                            </h4>
                         </div>
                         <!-- panel body -->
-                        <div id="accordion{{vendor_name}}" class="panel-collapse collapse">
+                        <div id="accordion{{vendor}}" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <!-- Todays menu -->
                                 <div class="todays-menu">
-                                    {% for time_name in timings %}
+                                    {% for service, food_types in services.items %}
                                         <!-- Breakfast menu-->
-                                        <div class="{{time_name|lower}}-menu  row">
-                                            <h4 class="meal-header">{{ time_name }}</h4>
+                                        <div class="{{service|lower}}-menu  row">
+                                            <h4 class="meal-header">{{ service|title }}</h4>
                                             <div class="inner-menu">
-                                                {% for type_name in food_types %}
+                                                {% for type_name, items in food_types.items %}
                                                     <div class="col-md-6 col-sm-12 col-xs-12 {% if type_name == 'veg'%}pull-left {% else %} pull-right{% endif %}">
                                                         <div class="menu-list">
                                                             <h3>{{type_name | title}}</h3>
                                                             <img class="img-responsive" src="/static/images/menu3.jpg" alt="">
                                                             <div class="menu-list-item">
-                                                                {% for food_item in items %}
+                                                                {% for item in items %}
                                                                     <!-- Heading / Dish name -->
-                                                                    <h4 class="pull-left">{{food_item.name}}</h4>
+                                                                    <h4 class="pull-left">{{item.food_item}}</h4>
                                                                     <!-- Dish price -->
-                                                                    <span class="price pull-right">${{food_item.price}}</span>
+                                                                    <span class="price pull-right">--$</span>
                                                                     <div class="clearfix"></div>
                                                                 {% endfor %}
                                                             </div>
@@ -75,7 +75,6 @@
 {% endblock %}
 
 {% block script %}
-    <script src="/static/bower_components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+    <script src="/static/bower_components/bootstrap-combobox/js/bootstrap-combobox.js" type="text/javascript"></script>
     <script src="/static/bower_components/bootstrap-star-rating/js/star-rating.js" type="text/javascript"></script>
-
 {% endblock %}
