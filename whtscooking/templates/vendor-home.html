@@ -10,43 +10,46 @@
     <!-- Ends Container header -->
     <div class="container main-section">
         <!-- Select meal type header -->
-        {% include 'partials/food-timings.html' %}
+        {% include 'partials/food-services.html' %}
 
         <!--Ends select meal-->
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#createMenu">Create Today's Menu</a></li>
             <li><a data-toggle="tab" href="#addItem">Add menu items</a></li>
-            <li><a data-toggle="tab" href="#viewRating">View Rating</a></li>
+            <!--<li><a data-toggle="tab" href="#viewRating">View Rating</a></li>-->
         </ul>
         <div class="tab-content">
             <!-- Create todays menu -->
             <!-- Breakfast -->
             <div id="createMenu" class="tab-pane fade in active">
-                {% for food_time in timings %}
-                    <div class="menu-create-wrap menu-create-wrap-{{food_time|lower}} {% if forloop.counter != 1%} hide {% endif %}">
-                        <h4 class="">Create {{food_time|title}} Menu</h4>
+                {% for service, food_items in services.items %}
+                    <div class="menu-create-wrap menu-create-wrap-{{service|lower}} {% if forloop.counter != 1%} hide {% endif %}">
+                        <h4 class="">Create {{service|title}} Menu</h4>
                         <div class="row menu-creator">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <select multiple="multiple" id="id_{{food_time|lower}}_selector" name="id_{{food_time|lower}}_selector">
+                                <select multiple="multiple" id="id_{{service|lower}}_selector" name="id_{{service|lower}}_selector">
                                     <!-- Create options using backend -->
-                                    <option value="1">elem 1</option>
-                                    <option value="2">elem 2</option>
-                                    <option value="3">elem 3</option>
-                                    <option value="4">elem 4</option>
+                                    {% for food_item in food_items %}
+                                        <option value="{{forloop.counter}}">{{food_item|title}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-
             <!-- Ends create todays menu -->
+
             <!--Add item content-->
             <div id="addItem" class="tab-pane fade">
-                Add Menu item
+                <form id="id_login_form" name="id_login_form" action="post-login.py" accept-charset="UTF-8" role="form" class="form-signin">
+                    Add Menu item
+                    <input class="form-control" placeholder="Food item for select service!!" id="menu_item" type="text">
+                    {% csrf_token %}
+                </form>
             </div>
-
             <!--Ends add item content-->
+
             <!-- Reviews tab-->
             <div id="viewRating" class="tab-pane fade">
                 View Reviews

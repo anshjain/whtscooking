@@ -22,18 +22,6 @@ class Vendor(models.Model):
         return "{}".format(self.name)
 
 
-class FoodItems(models.Model):
-    """ model representing different food items """
-    item = models.CharField(max_length=100)
-    description = models.TextField()
-    type = models.CharField(max_length=10, default='veg', choices=(('veg', 'Veg'), ('non-veg', 'Non Veg')))
-    created_at = models.DateTimeField(auto_created=True)
-    last_modified = models.DateTimeField(auto_now=True)
-
-    def __unicode__(self):
-        return "{}".format(self.item)
-
-
 class Service(models.Model):
     """ model representing the type of services delivered by the vendor """
     name = models.CharField(max_length=10, default='lunch', choices=(('breakfast', 'Breakfast'), ('lunch', 'Lunch'), ('snacks', 'Snacks'), ('dinner', 'Dinner')))
@@ -42,6 +30,19 @@ class Service(models.Model):
 
     def __unicode__(self):
         return "{}".format(self.name)
+
+
+class FoodItems(models.Model):
+    """ model representing different food items """
+    item = models.CharField(max_length=100)
+    description = models.TextField()
+    service = models.ManyToManyField(Service)
+    type = models.CharField(max_length=10, default='veg', choices=(('veg', 'Veg'), ('non-veg', 'Non Veg')))
+    created_at = models.DateTimeField(auto_created=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return "{}".format(self.item)
 
 
 class VendorMenu(models.Model):
